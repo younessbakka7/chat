@@ -79,6 +79,8 @@ input[type=password] {
   transition: 0.5s;
 }
 .con{
+  background-color: #53b8da;
+;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -90,7 +92,8 @@ input:hover{
 
 
 }
-con:hover{
+.con:hover{
+  background-color:  #ADD8E6;
   border-radius: 30px;
 }
 span{
