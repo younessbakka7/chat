@@ -85,7 +85,6 @@ input[type=password] {
 }
 .con{
   background-color: #53b8da;
-;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

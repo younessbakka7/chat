@@ -127,7 +127,9 @@ input[type=password] {
 input[type=password]:focus {
   border: 3px solid #555;
 }
-
+input:hover{
+  border-radius: 30px;
+}
 .con{
   width: 100%;
   background-color: #53b8da;
