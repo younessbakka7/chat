@@ -1,5 +1,6 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+import axios from 'axios'
 
 export default {
   name: 'SignUp',
@@ -10,6 +11,13 @@ export default {
       password:"",
       confirmedPassword:"",
     }
+  },
+  methods: {
+    Register(e) {
+      e.preventDefault()
+      axios.post('/api/auth/register',{name:this.name,email:this.email,password:this.password,password_confirmation:this.confirmedPassword})
+      .then(res => console.log(res))
+    }
   }
 }
 
@@ -18,7 +26,7 @@ export default {
 </script>
 
 <template>
-<form action="#" class='form1'>
+<form @submit="Register" class='form1'>
   <h1>Create your account</h1>
   <p>Please note that phone verification is required for signup. Your number will only be used to verify your identity for security purposes.</p>
   <label >Name :</label><br>

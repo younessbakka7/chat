@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         $cred = $request->validate([
             'email' => 'required|string|email',
-            'password' => 'required|string|min:8'
+            'password' => 'required|string'
         ]);
 
         if (!Auth::attempt($cred)) {

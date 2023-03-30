@@ -29,6 +29,10 @@ export default {
    <router-link to="/Signup">
     <button class="btn2">Sign up</button>
    </router-link>
+   <router-link to="/Logout">
+    <button class="btn2">Logout</button>
+   </router-link>
+
 
 </div>
 

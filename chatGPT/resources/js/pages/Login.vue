@@ -1,6 +1,7 @@
 <script >
 import {RouterLink, RouterView } from 'vue-router'
 import router from "@/router"
+import axios from 'axios'
 //import '../js/Login.css';
 export default {
   name: 'Login',
@@ -13,7 +14,11 @@ export default {
   methods: {
     signin(e) {
       e.preventDefault()
-      router.push({path: "test"})
+      axios.post('/api/auth/login',{email:this.email,password:this.password})
+      .then(res => {
+        console.log(res)
+        router.push({path: 'Interface'})
+      })
     }
   }
 }
