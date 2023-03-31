@@ -5,7 +5,7 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="navbar-header">
-        <router-link to="/" class="navbar-logo">Logo</router-link>
+        <router-link to="/" class="navbar-logo">Aitala</router-link>
       </div>
       <div class="navbar-menu">
         <div class="navbar-links">
@@ -45,11 +45,11 @@
 </script>
 <style scoped>
 .navbar {
-  background-color: #333;
+  background-color:#53b8da;
   color: #fff;
   font-size: 1.2rem;
   
-  border-radius: 0px 0px 250px 250px;
+  border-radius: 0px 0px 40px 40px;
 }
 
 .navbar-container {
@@ -61,7 +61,7 @@
 }
 
 .navbar-header {
-  
+
   display: flex;
   align-items: center;
 }
@@ -103,6 +103,63 @@
 .navbar-button:hover {
   background-color: #ddd;
 }
+.navbar {
+  background-color:#53b8da;
+  color: #fff;
+  font-size: 1.2rem;
+  
+  border-radius: 0px 0px 40px 40px;
+}
 
+.navbar-container {
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar-header {
+
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.navbar-item {
+  color: #fff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.navbar-buttons {
+  display: flex;
+}
+
+.navbar-button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.navbar-button:hover {
+  background-color: #ddd;
+}
 </style>

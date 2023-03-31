@@ -59,7 +59,7 @@ export default {
   padding-right: 50px;
   width: 60%;
   margin-left: 20%;
-  margin-top: 30px;
+  margin-top: 160px;
   margin-right: 50%;
   
   

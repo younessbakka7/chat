@@ -62,6 +62,7 @@ h1{
   color:#77c6e0;
 }
 .form{
+  margin-top: 200px;
   width: 350px;
   margin-left: 500px;
 
