@@ -48,7 +48,7 @@
 </script>
 <style scoped>
 .navbar {
-  background-color: #333;
+  background-color:#53b8da;
   color: #fff;
   font-size: 1.2rem;
   
