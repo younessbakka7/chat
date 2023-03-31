@@ -28,11 +28,6 @@ const router = createRouter({
     },
     
     {
-      path: '/test',
-      name: 'test',
-      component: test
-    },
-    {
       path: '/AuthLayout',
       name: 'AuthLayout',
       component: AuthLayout,
@@ -41,6 +36,11 @@ const router = createRouter({
           path: '/Interface',
           name: 'Interface',
           component: Interface
+        },
+        {
+          path: '/test',
+          name: 'test',
+          component: test
         },
 
       ]
