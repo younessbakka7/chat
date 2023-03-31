@@ -19,7 +19,7 @@ export default {
 
 <template>
 <section class="container">
-  <img src="/public/logo.png"  alt="fgg">
+
   <h1 class="wel">Welcome to ChatGPT by Aitala Banding</h1>
   <p class="p1">Log in with your OpenAI account to continue</p>
   <div class="btn">

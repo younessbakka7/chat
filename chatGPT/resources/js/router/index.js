@@ -6,26 +6,35 @@ import Signup from '../pages/Signup.vue'
 import Interface from '../pages/Interface.vue'
 import test from '../pages/test.vue'
 import AuthLayout from '../layouts/AuthLayout.vue'
+import GuestLayout from '../layouts/GuestLayout.vue'
 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component:Home 
+      path: '/GuestLayout',
+      name: 'GuestLayout',
+      component: GuestLayout,
+      children: [
+        {
+          path: '/',
+          name: 'home',
+          component:Home 
+        },
+        {
+          path: '/login',
+          name: 'login',
+          component: Login
+        },
+        {
+          path: '/Signup',
+          name: 'Signup',
+          component: Signup
+        },
+      ]
     },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
-    },
-    {
-      path: '/Signup',
-      name: 'Signup',
-      component: Signup
-    },
+
     
     {
       path: '/AuthLayout',
@@ -42,6 +51,12 @@ const router = createRouter({
           name: 'test',
           component: test
         },
+        {
+          path: '/',
+          name: 'home',
+          component:Home 
+        },
+        
 
       ]
     },

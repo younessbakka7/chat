@@ -5,16 +5,13 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="navbar-header">
-        <router-link to="/" class="navbar-logo">Aitala</router-link>
+        <router-link to="/" class="navbar-logo">Logo</router-link>
       </div>
       <div class="navbar-menu">
         <div class="navbar-links">
           <router-link to="/" class="navbar-item">Home</router-link>
-          <!-- <router-link to="/login" class="navbar-item">Login</router-link>
-          <router-link to="/signup" class="navbar-item">Signup</router-link> -->
-        </div>
-        <div class="navbar-buttons">
-          <button class="navbar-button" @click="logout">Logout</button>
+          <router-link to="/login" class="navbar-item">Login</router-link>
+          <router-link to="/signup" class="navbar-item">Signup</router-link>
         </div>
       </div>
     </div>
@@ -27,7 +24,7 @@
     import axios from 'axios';
     import router from "@/router"
     export default {
-        name: 'AuthLayout', 
+        name: 'GuestLayout', 
         methods: {
             logout() {
                 // preventDefault()
@@ -52,7 +49,7 @@
   color: #fff;
   font-size: 1.2rem;
   
-  border-radius: 0px 0px 40px 40px;
+  border-radius: 0px 0px 250px 250px;
 }
 
 .navbar-container {
@@ -64,7 +61,7 @@
 }
 
 .navbar-header {
-
+  
   display: flex;
   align-items: center;
 }
