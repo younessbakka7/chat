@@ -1,11 +1,14 @@
 
 
 <template>
+  <div class="test">
+    <h3>Interface chatGPT By Aitaala</h3>
+  <!--affiche message and save old msg  --><p v-for="answer in answers" class="msg">{{ answer }}</p><br><br> 
 
-<p>{{ answer }}</p><br><br>
-  <input type="text" v-model="question" name="" id="">
+  <input type="text" v-model="question" name="" id="" placeholder="Ecrire ici...">
 
 <button @click="configring">Generate Text</button>
+  </div>
 </template>
 
 <script>
@@ -16,54 +19,45 @@ export default {
   data() {
     return {
       question: "",
-      answer: ''
+      answers: []
     }
   },
   methods: {
     async configring() {
       const configuration = new Configuration({
-        apiKey: "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",
+      /*apikey limite*/  apiKey: "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",
       });
       const openai = new OpenAIApi(configuration);
+      
 
       const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [{role: "user", content: "Hello"},
         {role: "assistant", content: "how can i help you"},
         {role: "user", content: this.question}
-      ],
-        
+      ],  
       });
       console.log(completion.data.choices[0].message.content);
-      this.answer = completion.data.choices[0].message.content
+      /*add new message in array */  this.answers.push(completion.data.choices[0].message.content)
     }
-  
   }
-
 }
 </script>
 <style scoped>
 .test{
-  
-
-  border: 1px solid black;
   margin-top: 10%;
-  margin-left: 10%;
-  width:80vw;
-  height:fit-content ;
 
-
+  width:100vw;
+  height:500px ;
 }
 h3{
-  
-
   font-size: 40px;
   margin-bottom: 5%;
   color: #ADD8E6;
   text-align: center;
-
 }
 .msg{
+  margin-bottom: 20px;
   color: black;
   background-color:#60b9d6; 
   font-size: 20px;
