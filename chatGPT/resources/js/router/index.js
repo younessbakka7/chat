@@ -38,6 +38,7 @@ const router = createRouter({
       path: '/AuthLayout',
       name: 'AuthLayout',
       component: AuthLayout,
+      beforeEnter: guardAuth,
       children: [
         {
           path: '/Interface',
@@ -58,5 +59,12 @@ const router = createRouter({
     },
   ]
 })
+
+function guardAuth(to,from,next) {
+  if (localStorage.getItem('auth') == 1) {
+    return next()
+  }
+  return next('/login')
+}
 
 export default router

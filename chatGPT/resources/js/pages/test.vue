@@ -1,14 +1,17 @@
 
 
 <template>
-  <div class="test">
-    <h3>Interface chatGPT By Aitaala</h3>
-  <!--affiche message and save old msg  --><p v-for="answer in answers" class="msg">{{ answer }}</p><br><br> 
+  <form @submit="configring" class="test"  >
+<h3>Interface chatGPT By Aitaala</h3>
+<div v-for="(answer, index) in answers">
+  <p v-if="index%2 == 0" class="msg2">{{ answer }}</p>
+  <p v-else class="msg1">{{ answer }}</p>
+</div>
+<br><br>
+  <input type="text" v-model="question" name="" id="" placeholder="Ecrire ici">
 
-  <input type="text" v-model="question" name="" id="" placeholder="Ecrire ici...">
-
-<button @click="configring">Generate Text</button>
-  </div>
+<button type="submit">Generate Text</button>
+</form>
 </template>
 
 <script>
@@ -23,9 +26,10 @@ export default {
     }
   },
   methods: {
-    async configring() {
+    async configring(e) {
+      e.preventDefault()
       const configuration = new Configuration({
-      /*apikey limite*/  apiKey: "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",
+      /*apikey limite*/  apiKey: "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",
       });
       const openai = new OpenAIApi(configuration);
        
@@ -40,27 +44,36 @@ export default {
       });
 
       console.log(completion.data.choices[0].message.content);
-      /*add new message in array */  this.answers.push(completion.data.choices[0].message.content)
+      this.answers.push(completion.data.choices[0].message.content)
     }
+  
   }
+
 }
 </script>
 <style scoped>
 
 .test{
-  margin-top: 10%;
+  
 
-  width:100vw;
-  height:500px ;
+  border: 1px solid black;
+  margin-top: 10%;
+  margin-left: 10%;
+  width:80vw;
+  height:fit-content ;
+
+
 }
 h3{
+  
+
   font-size: 40px;
   margin-bottom: 5%;
   color: #ADD8E6;
   text-align: center;
+
 }
-.msg{
-  margin-bottom: 20px;
+.msg1{
   color: black;
   background-color:#60b9d6; 
   font-size: 20px;
@@ -68,10 +81,28 @@ h3{
   padding-bottom: 20px;
   padding-top: 20px;
   margin-left: 30px;
+  margin-bottom: 20px;
   width: fit-content;
   height: fit-content;
   border-radius:15px 0 15px 0 ;
   box-shadow: 0 0 6px #B2B2B2;
+  
+  
+}
+.msg2{
+  color: white;
+  background-color:#555; 
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  width: fit-content;
+  height: fit-content;
+  border-radius:15px 0 15px 0 ;
+  box-shadow: 0 0 6px #B2B2B2;
+  text-align: start;
   
   
 }

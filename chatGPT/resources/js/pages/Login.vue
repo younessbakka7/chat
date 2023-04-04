@@ -18,6 +18,7 @@ export default {
       .then(res => {
         console.log(res)
         localStorage.setItem('access_token',res.data.access_token)
+        localStorage.setItem('auth',1)
         router.push({path: 'test'})
       })
     }
