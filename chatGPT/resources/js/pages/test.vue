@@ -22,7 +22,7 @@ export default {
   methods: {
     async configring() {
       const configuration = new Configuration({
-        apiKey: "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",
+        apiKey: "git",
       });
       const openai = new OpenAIApi(configuration);
 
