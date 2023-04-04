@@ -35,6 +35,7 @@
                     Authorization: `Bearer ${localStorage.getItem('access_token')}`
                 }) .then(res => {
                 localStorage.removeItem("access_token")
+                localStorage.removeItem("auth")
                 router.push({ path: "/" });
                 })
                 .catch( err=> {
@@ -43,7 +44,7 @@
             }
         }
     }
-    
+      
        
 </script>
 <style scoped>
