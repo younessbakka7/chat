@@ -126,6 +126,7 @@
 }
 
 .navbar-logo {
+  margin-left: 30px;
   color: #fff;
   font-weight: bold;
 }

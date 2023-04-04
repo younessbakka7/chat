@@ -2,52 +2,45 @@
 
 <template>
 
-  <div class="test">
-    
-    <h3>Interface chatGPT by Aitala Banding</h3><br><br>
-    <div class="msg" v-for="message in messages" :key="message.id">
-      {{ message.text }}
-    </div>
-  
-    <form @submit.prevent="sendMessage">
-      <input class="inp" type="text" v-model="newMessage" placeholder="type Ecrire..." />
-      <button  type="submit">Send</button>
-    </form>
-  </div>
+<p>{{ answer }}</p><br><br>
+  <input type="text" v-model="question" name="" id="">
+
+<button @click="configring">Generate Text</button>
 </template>
 
 <script>
 
+import { Configuration, OpenAIApi } from "openai";
+
 export default {
   data() {
     return {
-      messages: [],
-      newMessage: "",
-    };
+      question: "",
+      answer: ''
+    }
   },
   methods: {
-    async sendMessage() {
-      if (this.newMessage !== "") {
-        this.messages.push({ text: this.newMessage });
-        this.newMessage = "";
+    async configring() {
+      const configuration = new Configuration({
+        apiKey: "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",
+      });
+      const openai = new OpenAIApi(configuration);
 
-        const response = await fetch("https://api.chatbot.com/send", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            message: this.newMessage,
-          }),
-        });
+      const completion = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "user", content: "Hello"},
+        {role: "assistant", content: "how can i help you"},
+        {role: "user", content: this.question}
+      ],
+        
+      });
+      console.log(completion.data.choices[0].message.content);
+      this.answer = completion.data.choices[0].message.content
+    }
+  
+  }
 
-        const data = await response.json();
-
-        this.messages.push({ text: data.response });
-      }
-    },
-  },
-};
+}
 </script>
 <style scoped>
 .test{
