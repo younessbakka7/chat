@@ -22,7 +22,7 @@ export default {
   methods: {
     async configring() {
       const configuration = new Configuration({
-        apiKey: "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",
+        apiKey: "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",
       });
       const openai = new OpenAIApi(configuration);
 

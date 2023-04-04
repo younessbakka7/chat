@@ -34,8 +34,6 @@ const router = createRouter({
         },
       ]
     },
-
-    
     {
       path: '/AuthLayout',
       name: 'AuthLayout',
@@ -57,13 +55,8 @@ const router = createRouter({
           name: 'home',
           component:Home 
         },
-        
-
       ]
     },
-    
-    
-    
   ]
 })
 

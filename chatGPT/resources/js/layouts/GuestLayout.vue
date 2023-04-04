@@ -44,11 +44,11 @@
        
 </script>
 <style scoped>
+
 .navbar {
   background-color:#53b8da;
   color: #fff;
   font-size: 1.2rem;
-  
   border-radius: 0px 0px 40px 40px;
 }
 
