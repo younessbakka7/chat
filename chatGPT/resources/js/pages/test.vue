@@ -25,18 +25,20 @@ export default {
   methods: {
     async configring() {
       const configuration = new Configuration({
-      /*apikey limite*/  apiKey: "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",
+      /*apikey limite*/  apiKey: "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",
       });
       const openai = new OpenAIApi(configuration);
-      
-
+       
+      /* push qustion user*/ this.answers.push(this.question)
+/*vider input*/      this.question='';
       const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [{role: "user", content: "Hello"},
         {role: "assistant", content: "how can i help you"},
-        {role: "user", content: this.question}
+        {role: "user", content: this.question}  
       ],  
       });
+
       console.log(completion.data.choices[0].message.content);
       /*add new message in array */  this.answers.push(completion.data.choices[0].message.content)
     }
@@ -44,6 +46,7 @@ export default {
 }
 </script>
 <style scoped>
+
 .test{
   margin-top: 10%;
 
