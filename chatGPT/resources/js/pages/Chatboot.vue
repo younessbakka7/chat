@@ -4,7 +4,7 @@
   <form @submit="configring" class="test"  >
 <h3>Interface chatGPT By Aitaala</h3>
 
-
+<div class="messages">
 <div v-for="(answer, index) in answers">
   <div v-if="index%2 == 0">
   
@@ -12,6 +12,7 @@
 </div>
 <div  v-else-if="index%1 == 0">
   <img src="logo.png" class="user" alt="Profile Picture" /><p class="msg2">{{ answer }}</p>
+</div>
 </div>
 
 </div>
@@ -43,7 +44,8 @@ export default {
       const openai = new OpenAIApi(configuration);
        
       this.answers.push(this.question)
-       
+  
+      
       const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [{role: "user", content: "Hello"},
@@ -51,11 +53,9 @@ export default {
         {role: "user", content: this.question}  
       ],  
       });
-
       console.log(completion.data.choices[0].message.content);
       this.answers.push(completion.data.choices[0].message.content)
       this.question='';
-      
     }
   
   }
@@ -63,6 +63,17 @@ export default {
 }
 </script>
 <style scoped>
+
+
+.messages{
+  max-height: 300px;
+  max-width: 99%;
+  /* overflow:scroll; */
+  overflow-x: scroll;
+  overflow-y: scroll;
+
+}
+
 
 .test{
   margin-top: 10%;
@@ -80,10 +91,8 @@ h3{
   text-align: center;
 
 }
-
-
 .user {
-  
+
   border: 2px solid black;
   border-radius: 50%;
   margin: 20px;
@@ -103,13 +112,10 @@ h3{
   height: fit-content;
   border-radius:15px 0 15px 0 ;
   box-shadow: 0 0 6px #B2B2B2;
-  
-  
 }
 .msg2{
   margin-top: -100px;
-  
- color: white;
+  color: white;
   background-color:#555; 
   font-size: 20px;
   text-align: center;
