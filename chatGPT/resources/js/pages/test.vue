@@ -38,7 +38,11 @@ export default {
     async configring(e) {
       e.preventDefault()
       const configuration = new Configuration({
-      /*apikey limite*/  apiKey: "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",
+
+        apiKey: "git",
+
+      /*apikey limite*/  apiKey: "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",
+
       });
       const openai = new OpenAIApi(configuration);
        
