@@ -19,7 +19,7 @@ export default {
 
 <template>
 <section class="container">
-
+<img class="logo" src="logo.png">
   <h1 class="wel">Welcome to ChatGPT by Aitala Banding</h1>
   <p class="p1">Log in with your OpenAI account to continue</p>
   <div class="btn">
@@ -40,11 +40,17 @@ export default {
 </template>
 
 <style scoped>
+.logo{
+  
+  border-radius: 50%;
+  margin-left: 550px;
+  height:190px ;
+}
 .container {
 
   color: white;
   margin-left: 250px;
-  margin-top: 20%;
+  margin-top: 10%;
   margin-left: 0;
   margin-right: 0;
   width: 100%;
