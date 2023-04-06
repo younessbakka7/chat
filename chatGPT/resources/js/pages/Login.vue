@@ -21,6 +21,7 @@ export default {
         localStorage.setItem('auth',1)
         router.push({path: 'test'})
       })
+      .catch(err => console.log(err))
     }
   }
 }
