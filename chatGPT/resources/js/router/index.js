@@ -5,8 +5,10 @@ import Login from '../pages/Login.vue'
 import Signup from '../pages/Signup.vue'
 import Interface from '../pages/Interface.vue'
 import test from '../pages/test.vue'
+import Chatboot from '../pages/Chatboot.vue'
 import AuthLayout from '../layouts/AuthLayout.vue'
 import GuestLayout from '../layouts/GuestLayout.vue'
+
 
 
 const router = createRouter({
@@ -49,6 +51,11 @@ const router = createRouter({
           path: '/test',
           name: 'test',
           component: test
+        },
+        {
+          path: '/Chatboot',
+          name: 'Chatboot',
+          component: Chatboot
         },
         {
           path: '/',

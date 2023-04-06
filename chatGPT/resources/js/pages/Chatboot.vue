@@ -42,8 +42,8 @@ export default {
       });
       const openai = new OpenAIApi(configuration);
        
-      /* push qustion user*/ this.answers.push(this.question)
-/*vider input*/      this.question='';
+      this.answers.push(this.question)
+       
       const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [{role: "user", content: "Hello"},
@@ -54,6 +54,7 @@ export default {
 
       console.log(completion.data.choices[0].message.content);
       this.answers.push(completion.data.choices[0].message.content)
+      this.question='';
       
     }
   
@@ -133,7 +134,6 @@ input[type=text] {
 input[type=text]:focus {
   border: 2px solid #555;
   border-radius: 5px;
-  
 }
 button{
   background-color: #53b8da;
@@ -145,8 +145,6 @@ button{
 }
 input:hover{
   border-radius: 30px;
-
-
 }
 button:hover{
   background-color:  #ADD8E6;
