@@ -5,11 +5,11 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="navbar-header">
-        <router-link to="/" class="navbar-logo">Aitala</router-link>
+        <router-link to="/home" class="navbar-logo">Aitala</router-link>
       </div>
       <div class="navbar-menu">
         <div class="navbar-links">
-          <router-link to="/" class="navbar-item">Home</router-link>
+          <router-link to="/home" class="navbar-item">Home</router-link>
           <router-link to="/login" class="navbar-item">Login</router-link>
           <router-link to="/signup" class="navbar-item">Signup</router-link>
         </div>

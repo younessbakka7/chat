@@ -9,6 +9,7 @@ export default {
     return {
       email: "",
       password:"",
+      errors: {},
     }
   },
   methods: {
@@ -21,7 +22,7 @@ export default {
         localStorage.setItem('auth',1)
         router.push({path: 'test'})
       })
-      .catch(err => console.log(err))
+      .catch(err => this.errors = err.response.data.errors)
     }
   }
 }
@@ -42,9 +43,11 @@ export default {
 <form @submit="signin" class="form">
   <h1>Welcome back</h1>
   <label >Email : <span>*</span></label><br>
-  <input type="Email" placeholder="Email" v-model="email" required><br>
+  <input type="Email" placeholder="Email" v-model="email" ><br>
+  <p v-if="errors.email">{{ errors.email[0] }}</p>
   <label >Password : <span>*</span></label><br>
-  <input type="password" placeholder="password" v-model="password" required><br>
+  <input type="password" placeholder="password" v-model="password"  ><br>
+  <p v-if="errors.password">{{ errors.password[0] }}</p>
   
   <button class="con">continue</button>
 
@@ -62,6 +65,9 @@ export default {
 h1{
   font-size: 50px;
   color:#77c6e0;
+}
+p{
+  color: red;
 }
 .form{
   margin-top: 200px;
