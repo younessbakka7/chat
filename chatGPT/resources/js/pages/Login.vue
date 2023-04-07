@@ -1,5 +1,5 @@
 <script >
-import {RouterLink, RouterView } from 'vue-router'
+
 
 
 
@@ -19,11 +19,11 @@ import {RouterLink, RouterView } from 'vue-router'
   <form action="">
     <div class="cont">
     <label for="">Your Email:</label><br>
-    <input type="email" placeholder="Email ici ..."><br><br>
+    <input type="email" placeholder="Email ici ..." required><br><br>
   </div>
   <div class="cont">
     <label for="">Password:</label><br>
-    <input type="password" placeholder="Password"><br>
+    <input type="password" placeholder="Password" required><br>
   </div>
     <p class="forget">Forgot Password ?</p>
     <button class="btn1">Sign In</button><br>
@@ -133,7 +133,17 @@ input[type=password] {
   background: #3670BE;
 opacity: 0.9;
 border-radius: 20px;
-
+transition: 0.5s;
+}
+.btn1:hover{
+  opacity: 0.5;
+  color: white;
+  
+}
+.btn2:hover{
+  opacity: 0.5;
+  color: black;
+  
 }
 .btn2{
   width:80%;
@@ -143,10 +153,7 @@ border-radius: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  
-
-
-
+  transition: 0.5s;
 }
 .logo{
   width: 10%;
@@ -163,21 +170,22 @@ border-radius: 20px;
 
 }
 .img-cont{
-  height: 100%;
-width: 100%;
-background: #234877;
-border-radius: 29px;
-margin:20px ;
+  height: 98%;
+  width: 91%;
+    background: #234877;
+    border-radius: 29px;
+    margin: 20px;
 }
 .mac{
 
-  width: 80%;
-  margin-top: -55%;
-  margin-left: -25px;
-
+     width: 80%;
+    margin-top: -53%;
+    margin-left: 22px;
 }
+
+
 .Ellipse{
-  padding-left:110px;
+  padding-left:180px;
   margin-top: 150px;
   
   width: 60%;
