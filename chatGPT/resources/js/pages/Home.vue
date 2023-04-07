@@ -1,22 +1,9 @@
 <script >
 import { RouterLink, RouterView } from 'vue-router'
-
-
-
-
-
-
-
-
-
-
 export default {
   name: "home"
 }
-
-
 </script>
-
 <template>
 <section class="container">
 <img class="logo" src="logo.png">
@@ -41,13 +28,11 @@ export default {
 
 <style scoped>
 .logo{
-  
   border-radius: 50%;
   margin-left: 550px;
   height:190px ;
 }
 .container {
-
   color: white;
   margin-left: 250px;
   margin-top: 10%;
@@ -56,22 +41,18 @@ export default {
   width: 100%;
   height: 100%;
 }
-
 .wel {
   opacity: 0.5;
   text-align: center;
   color: blue;
   font-size: 30px;
 }
-
 .p1 {
   color: black;
   text-align: center;
   font-size: 20px;
 }
-
 .btn {
-
   margin-left: 40%;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -83,17 +64,12 @@ button {
   height: 50px;
   color: white;
   background-color:#53b8da;
-
-
 }
-
 .btn2 {
   margin-left: 15px;
 }
-
 button:hover {
   color: black;
-
   background-color: #ADD8E6;
 }
 .aitala{
@@ -102,5 +78,4 @@ button:hover {
   float: center;
   margin-bottom: 0;
 }
-
 </style>

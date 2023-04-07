@@ -3,9 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
 import Login from '../pages/Login.vue'
 import Signup from '../pages/Signup.vue'
-import Interface from '../pages/Interface.vue'
+
 import test from '../pages/test.vue'
-import Chatboot from '../pages/Chatboot.vue'
+
 import AuthLayout from '../layouts/AuthLayout.vue'
 import GuestLayout from '../layouts/GuestLayout.vue'
 
@@ -18,23 +18,24 @@ const router = createRouter({
       path: '/GuestLayout',
       name: 'GuestLayout',
       component: GuestLayout,
-      children: [
-        {
-          path: '/',
-          name: 'home',
-          component:Home 
-        },
-        {
-          path: '/login',
-          name: 'login',
-          component: Login
-        },
-        {
-          path: '/Signup',
-          name: 'Signup',
-          component: Signup
-        },
-      ]
+      // children: [
+        
+      // ]
+    },
+    {
+      path: '/',
+      name: 'home',
+      component:Home 
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/Signup',
+      name: 'Signup',
+      component: Signup
     },
     {
       path: '/AuthLayout',
@@ -42,21 +43,13 @@ const router = createRouter({
       component: AuthLayout,
       beforeEnter: guardAuth,
       children: [
-        {
-          path: '/Interface',
-          name: 'Interface',
-          component: Interface
-        },
+      
         {
           path: '/test',
           name: 'test',
           component: test
         },
-        {
-          path: '/Chatboot',
-          name: 'Chatboot',
-          component: Chatboot
-        },
+      
         {
           path: '/',
           name: 'home',
