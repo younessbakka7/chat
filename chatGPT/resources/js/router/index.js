@@ -2,11 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 
 import Login from '../pages/Login.vue'
-import Signup from '../pages/Signup.vue'
+import Register from '../pages/Register.vue'
+import Chatboot from '../pages/Chatboot.vue'
+
 
 import test from '../pages/test.vue'
 import AuthLayout from '../layouts/AuthLayout.vue'
 import GuestLayout from '../layouts/GuestLayout.vue'
+
 
 
 const router = createRouter({
@@ -16,9 +19,15 @@ const router = createRouter({
       path: '/GuestLayout',
       name: 'GuestLayout',
       component: GuestLayout,
-      // children: [
+      children: [
+      
+      {
+        path: '/Chatboot',
+        name: 'Chatboot',
+        component: Chatboot
+      }
         
-      // ]
+      ]
     },
     
     {
@@ -27,9 +36,9 @@ const router = createRouter({
       component: Login
     },
     {
-      path: '/Signup',
-      name: 'Signup',
-      component: Signup
+      path: '/Register',
+      name: 'Register',
+      component: Register
     },
     {
       path: '/AuthLayout',

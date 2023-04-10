@@ -39,7 +39,7 @@ export default {
     async configring(e) {
       e.preventDefault()
       const configuration = new Configuration({
-      /*apikey limite*/  apiKey: "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",
+      /*apikey limite*/  apiKey: "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",
       });
       const openai = new OpenAIApi(configuration);
        
@@ -101,7 +101,7 @@ h3{
 .msg1{
   margin-top: -100px;
   color: black;
-  background-color:#60b9d6; 
+  /* background-color:#60b9d6;  */
   font-size: 20px;
   text-align: center;
   padding-bottom: 20px;
@@ -142,7 +142,7 @@ input[type=text]:focus {
   border-radius: 5px;
 }
 button{
-  background-color: #53b8da;
+  /* background-color: #53b8da; */
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -153,7 +153,7 @@ input:hover{
   border-radius: 30px;
 }
 button:hover{
-  background-color:  #ADD8E6;
+  /* background-color:  #ADD8E6; */
   border-radius: 30px;
 }
 

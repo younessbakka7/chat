@@ -2,23 +2,24 @@
     
 </script>
 <template>
+<div class="body">
+
+
   <nav class="navbar">
     <div class="navbar-container">
       <div class="navbar-header">
-        <router-link to="/home" class="navbar-logo">Aitala</router-link>
-      </div>
-      <div class="navbar-menu">
-        <div class="navbar-links">
-          <router-link to="/home" class="navbar-item">Home</router-link>
-          <router-link to="/login" class="navbar-item">Login</router-link>
-          <router-link to="/signup" class="navbar-item">Signup</router-link>
-        </div>
+        <router-link to="/home" ><img class="img-logo" src="Logo Name Transparent 1 (1).png" alt="logo" /></router-link>
+      <i class="fa-sharp fa-solid fa-gear"></i>
       </div>
     </div>
     </nav>
+
+
     <div>
         <router-view />
     </div>
+
+</div>
 </template>
 <script>
     import axios from 'axios';
@@ -44,12 +45,31 @@
        
 </script>
 <style scoped>
+.fa-sharp {
+  margin-left: 383%;
+  margin-top: -23px;
+  width: 19px;
+  color: #333;
+}
 
+.body{
+  background-color: rgba(69, 69, 168, 0.699);
+  height: 40.5rem;
+  width: 100%; 
+}
 .navbar {
-  background-color:#53b8da;
-  color: #fff;
-  font-size: 1.2rem;
-  border-radius: 0px 0px 40px 40px;
+
+  background-color: #fff;
+    color:black;
+    font-size: 1.2rem;
+  
+    border-radius: 10px 0px 0px 0px ;
+   height: 90px;
+}
+.img-logo{
+  margin-left: 200%;
+
+  margin-top: -10%;
 }
 
 .navbar-container {
@@ -66,10 +86,10 @@
   align-items: center;
 }
 
-.navbar-logo {
-  color: #fff;
-  font-weight: bold;
-}
+/* .navbar-logo {
+width: 20px;
+height: 10px;
+} */
 
 .navbar-menu {
   display: flex;
@@ -81,7 +101,7 @@
 }
 
 .navbar-item {
-  color: #fff;
+  color: black;
   margin-right: 1rem;
   text-decoration: none;
 }
@@ -104,7 +124,6 @@
   background-color: #ddd;
 }
 .navbar {
-  background-color:#53b8da;
   color: #fff;
   font-size: 1.2rem;
   
@@ -162,5 +181,8 @@
 
 .navbar-button:hover {
   background-color: #ddd;
+}
+.nav-item {
+  color: #333;
 }
 </style>

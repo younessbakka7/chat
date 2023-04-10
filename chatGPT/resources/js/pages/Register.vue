@@ -1,16 +1,26 @@
 <script >
+import axios from 'axios'
+
 export default {
-  name: 'Login',
+  name: 'Register',
   data() {
     return {
-  
+      Firstname:"",
+      Lastname  :"",
       email: "",
       password:"",
-      
+      confirmedPassword:"",
+    }
+  },
+  methods: {
+    Register(e) {
+      e.preventDefault()
+      axios.post('/api/auth/register',{Firstname:this.Firstname,Lastname:this.Lastname,email:this.email,password:this.password,confirmedPassword:this.confirmedPassword})
+      .then(res => console.log(res))
     }
   }
 }
-  
+
 
 
 
@@ -25,21 +35,33 @@ export default {
   <div class="login-info">
   <div class="text">
     <h1>Welcome to Aitela Branding</h1>
-    <p>Sign In to Continue.</p>
+    <p>Register to Continue.</p>
   </div><br>
 
-  <form action="">
+  <form @submit="Register" class="form2">
     <div class="cont">
-    <label for="">Your Email:</label><br>
-    <input type="email" v-model="email" placeholder="Email ici ..." required><br><br>
+    <label for="">First name :</label><br>
+    <input type="text" v-model="Firstname" placeholder="First-name" required><br>
+  </div>
+  <div class="label">
+    <label for="">Last name</label><br>
+    <input  type="text" v-model="Lastname" placeholder="Last-name" required><br>
   </div>
   <div class="cont">
-    <label for="">Password:</label><br>
-    <input type="password" v-model="password" placeholder="Password" required><br>
+    <label for="">Email</label><br>
+    <input type="email" v-model="email" placeholder="Ecrire..." required><br>
+  </div>
+  <div class="cont">
+    <label for="">Password</label><br>
+    <input type="password" v-model="password" placeholder="password" required><br>
+  </div>
+  <div class="cont">
+    <label for="" > Confirmer Password : </label><br>
+    <input type="password" v-model="confirmedPassword" placeholder=" Confirmer-Password" required><br>
   </div>
     <p class="forget">Forgot Password ?</p>
     <button class="btn1">Sign In</button><br>
-    <button class="btn2">Register</button>
+    
 
   </form>
 </div>
@@ -71,9 +93,15 @@ export default {
 
 
 <style scoped>
+
+.label{
+  margin-top: -85px;
+  margin-left:60%;
+}
 .containner{
   background-image: url("gbvvq 1.png");
-  background-position: right;
+  background-position: right top;
+
   display: flex;
 
 
@@ -110,7 +138,7 @@ color: #1E1E1E;
 }
 input[type=email] {
 
-  width:80%;
+  width: 111%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -118,8 +146,19 @@ input[type=email] {
   border-radius: 4px;
   box-sizing: border-box;
 }
+input[type=text] {
+
+  width:-3%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 input[type=password] {
-  width:80%;
+  width:111%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -135,7 +174,7 @@ input[type=password] {
   text-decoration:underline;
 }
 .btn1{
-  width:80%;
+  width:111%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -152,21 +191,8 @@ transition: 0.5s;
   color: white;
   
 }
-.btn2:hover{
-  opacity: 0.5;
-  color: black;
-  
-}
-.btn2{
-  width:80%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  transition: 0.5s;
-}
+
+
 .logo{
   width: 10%;
 }
@@ -176,14 +202,15 @@ transition: 0.5s;
 }
 .login-img{
   
-  display: flex;
+  /* display: flex;
     flex-direction: row;
-    justify-content: center;
-
+    justify-content: center; */
+    margin-right: -141px;
+    margin-left: 85px;
 }
 .img-cont{
   height: 98%;
-  width: 85%;
+  width: 77%;
     background: #234877;
     border-radius: 29px;
     margin: 20px;
@@ -192,20 +219,21 @@ transition: 0.5s;
 
      width: 80%;
     margin-top: -53%;
-    margin-left: 22px;
+    margin-left: -2px;
 }
 
 
 .Ellipse{
-  padding-left:180px;
-  margin-top: 150px;
-  
-  width: 60%;
+  padding-left: 136px;
+    margin-top: 210px;
+    width: 60%;
+
   
 }
 .p1{
   color: white;
-padding-bottom: 90px;
+  padding-left: 69px;
+padding-top: 28px;
 text-align: center;
 
 
