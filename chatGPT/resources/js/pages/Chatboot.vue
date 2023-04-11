@@ -1,15 +1,27 @@
 <script>
 
+import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
 
 export default {
   data() {
     return {
       question: "",
-      answers: []
+      answers: [],
+      chats: [],
     }
   },
+  mounted() {
+    this.getChats()
+  },
   methods: {
+    getChats() {
+      axios.get("/api/chat",{
+      headers: {
+        Authorization : `Bearer ${localStorage.getItem("access_token")}`
+        }
+    })
+    },
     async configring(e) {
       e.preventDefault()
       const configuration = new Configuration({
@@ -18,7 +30,6 @@ export default {
       const openai = new OpenAIApi(configuration);
        
       this.answers.push(this.question)
-  
       
       const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
@@ -29,6 +40,12 @@ export default {
       });
       console.log(completion.data.choices[0].message.content);
       this.answers.push(completion.data.choices[0].message.content)
+      var answer = completion.data.choices[0].message.content
+      axios.post("/api/chat",{question:this.question,answer:answer,category: 0},{
+      headers: {
+        Authorization : `Bearer ${localStorage.getItem("access_token")}`
+        }
+    })
       this.question='';
     }
   
