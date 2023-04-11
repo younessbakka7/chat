@@ -135,15 +135,12 @@ font-weight: bold;
 }
 
 label{
-
-  font-weight: bold;
+font-weight: bold;
 font-size: 15px;
 letter-spacing: 0.12em;
-
 color: #1E1E1E;
 }
 input[type=email] {
-
   width: 111%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -153,7 +150,6 @@ input[type=email] {
   box-sizing: border-box;
 }
 input[type=text] {
-
   width:-3%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -162,7 +158,6 @@ input[type=text] {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 input[type=password] {
   width:111%;
   padding: 12px 20px;
