@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-// use App\Traits\ApiResponser;
+
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -15,44 +17,46 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        $attr = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
+        // create new user
+        $formFields = $request->validate([
+            'firstName' => ['required','min:2'],
+            'lastName' => ['required'],
+            'email' => ['required','email',Rule::unique('users','email')],
+            'password' => 'required|confirmed|min:6'
         ]);
 
-        $user = User::create([
-            'name' => $attr['name'],
-            'password' => bcrypt($attr['password']),
-            'email' => $attr['email']
-        ]);
-
-        return response()->json(['user'=>$user,'access_token' => $user->createToken('API Token')->plainTextToken],200);
+        //hash password
+        $formFields['password'] = bcrypt($formFields['password']);
+        // create user
+        $user = User::create($formFields);
+        //login
+        return response()->json(["user" => $user, "token" => $user->createToken("Api Token of ".$user->fname)->plainTextToken,"message" =>"user created and in"],200);
     }
 
     public function login(Request $request)
     {
-        $cred = $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string'
+        $credentials = $request->validate([
+            'email' => ['required','email'],
+            'password' => 'required'
         ]);
+        if(!auth()->attempt($credentials)) {
+            return response()->json("invalid credentials",401);
+        }
+        $user = User::where('email',$request->email)->first();
 
-        if (!Auth::attempt($cred)) {
-            return $this->error('Credentials not match', 401);
+        return response()->json(["user" => $user, "token" => $user->createToken("Api Token of ".$user->fname)->plainTextToken,"message" =>"user in"],200);
         }
 
-        $user = User::where('email',$cred['email'])->first();
-
-        return response()->json(['user'=>$user,'access_token' => auth()->user()->createToken('API Token')->plainTextToken],200);
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json("user logged out successfully",200);
     }
 
-    public function logout()
-    {
-        auth()->user()->tokens()->delete();
-
-        return [
-            'message' => 'Tokens Revoked'
-        ];
+    public function getUser(Request $request) {
+        $user = User::where("id",auth()->id())->with('roles')->get();
+        
+        return response()->json($user,200);
     }
 }
 
