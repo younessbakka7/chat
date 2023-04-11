@@ -39,7 +39,7 @@ export default {
   </div>
     <p class="forget">Forgot Password ?</p>
     <button class="btn1">Sign In</button><br>
-    <button class="btn2">Register</button>
+  <RouterLink to="/Register" ><button class="btn2">Register</button></RouterLink>  
 
   </form>
 </div>

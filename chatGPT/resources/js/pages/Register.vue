@@ -58,8 +58,7 @@ export default {
   <div class="cont">
     <label for="" > Confirmer Password : </label><br>
     <input type="password" v-model="confirmedPassword" placeholder=" Confirmer-Password" required><br>
-  </div>
-    <p class="forget">Forgot Password ?</p>
+  </div> 
     <button class="btn1">Sign In</button><br>
     
 
