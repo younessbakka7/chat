@@ -8,8 +8,8 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="navbar-header">
-        <router-link to="/home" ><img class="img-logo" src="Logo Name Transparent 1 (1).png" alt="logo" /></router-link>
-      <i class="fa-sharp fa-solid fa-gear"></i>
+        <router-link to="/Chatboot" ><img class="img-logo" src="Logo Name Transparent 1 (1).png" alt="logo" /></router-link>
+        <router-link to="/Edit" ><i class="fa-sharp fa-solid fa-gear"></i></router-link>
       </div>
     </div>
     </nav>
@@ -46,7 +46,7 @@
 </script>
 <style scoped>
 .fa-sharp {
-  margin-left: 383%;
+  margin-left: 5000%;
   margin-top: -23px;
   width: 19px;
   color: #333;
@@ -54,7 +54,7 @@
 
 .body{
   background-color: rgba(69, 69, 168, 0.699);
-  height: 40.5rem;
+  height: 42rem;
   width: 100%; 
 }
 .navbar {
@@ -69,7 +69,7 @@
 .img-logo{
   margin-left: 200%;
 
-  margin-top: -10%;
+  margin-top:-6%;
 }
 
 .navbar-container {

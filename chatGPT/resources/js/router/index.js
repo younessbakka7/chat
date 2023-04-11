@@ -4,9 +4,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../pages/Login.vue'
 import Register from '../pages/Register.vue'
 import Chatboot from '../pages/Chatboot.vue'
+import Edit from '../pages/Edit.vue'
 
 
-import test from '../pages/test.vue'
+
 import AuthLayout from '../layouts/AuthLayout.vue'
 import GuestLayout from '../layouts/GuestLayout.vue'
 
@@ -25,8 +26,12 @@ const router = createRouter({
         path: '/Chatboot',
         name: 'Chatboot',
         component: Chatboot
-      }
-        
+      },
+      {
+        path: '/Edit',
+        name: 'Edit',
+        component: Edit
+      },
       ]
     },
     
@@ -40,21 +45,18 @@ const router = createRouter({
       name: 'Register',
       component: Register
     },
+  
     {
       path: '/AuthLayout',
       name: 'AuthLayout',
       component: AuthLayout,
       beforeEnter: guardAuth,
-      children: [
+      // children: [
       
-        {
-          path: '/test',
-          name: 'test',
-          component: test
-        },
+      
       
 
-      ]
+      // ]
     },
   ]
 })

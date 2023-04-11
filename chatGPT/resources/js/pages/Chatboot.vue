@@ -13,7 +13,7 @@ export default {
     async configring(e) {
       e.preventDefault()
       const configuration = new Configuration({
-      /*apikey limite*/  apiKey: "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",
+      /*apikey limite*/  apiKey: "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",
       });
       const openai = new OpenAIApi(configuration);
        
@@ -48,7 +48,7 @@ export default {
   </div>
   </div>
     
- <!-- ********************************************************************** -->
+ 
  <div class="form">
   <form @submit="configring" class="test"  >
     <div  class="answer">
@@ -63,7 +63,7 @@ export default {
 
     </div>
   <div class="question">
-    <input type="text" v-model="question" placeholder="Ecrire ici...">
+    <input type="text" v-model="question" placeholder="Ecrire ici..."><img class="ig" src="Vector.png" alt="">
   </div>
     
   </form>
@@ -75,6 +75,12 @@ export default {
 
 
 <style scoped>
+.ig{
+   
+    margin-left: -32px;
+    height: 15px;
+    margin-top: 12px;
+}
 .containner{
 background-color: white;
 background-image: url("gbvvq 1.png");
@@ -122,16 +128,17 @@ font-weight: bold;
   width: 45%;
 }
 .form{
+border-left: 2px solid gray;
   padding-top: 4px;
-  width: 60%;
+  width: 117%;
   height: 33rem;
 }
 
 input[type=text] {
   
-color: white;
-  margin-left: 124px;
-    width: 559px;
+    color: black;
+    margin-left: -15px;
+    width: 806px;
     padding-top: 10px;
     padding-bottom: 10px;
     box-sizing: border-box;
@@ -139,13 +146,30 @@ color: white;
     border-radius: 3px;
 
 }
+input[type=text] {
+  
+    color: black;
+    margin-left: -15px;
+    width: 806px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(90.44deg, #487DC4 -67.12%, #3567A9 130.06%);
+    border-radius: 3px;
+
+}
+input[type=text]::placeholder {
+  
+    color: black;
+    
+}
 .user {
 
 height:80px ;
 }
 .msg1{
   color: black;
-  /* background-color:#60b9d6;  */
+
   font-size: 20px;
   text-align: center;
   padding-bottom: 20px;
@@ -174,6 +198,7 @@ height:80px ;
 .question {
   display: flex;
   justify-content: center;
+  
 }
 .response {
   display: flex;
